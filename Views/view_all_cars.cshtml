@@ -3,11 +3,11 @@
   @foreach(var car in Model)
   {
     <h3>@car.GetMakeModel()</h3>
-    <ul>
-      <li>@car.GetMessage()</li>
-      <li>@car.GetMiles()</li>
-      <li>$<p>@car.GetPrice()</p></li>
-    </ul>
+
+      <p>@car.GetMessage()</p>
+      <p>Miles: @car.GetMiles()</p>
+      <p>Price: $@car.GetPrice()</p>
+
   }
 <p><a href="/">Add another car</a></p>
 <form action="/cars_cleared" method="post">
