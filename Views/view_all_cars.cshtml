@@ -1,0 +1,11 @@
+<h1>Car Inventory</h1>
+<ul>
+  @foreach(Car car in Model)
+  {
+    <li>@car</li>
+  }
+</ul>
+<p><a href="/">Add another car</a></p>
+<form action="/cars_cleared" method="post">
+  <button type="submit" name="button">Clear All Cars</button>
+</form>
