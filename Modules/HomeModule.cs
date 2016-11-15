@@ -11,16 +11,12 @@ namespace CarDealership
       Get["/"] = _  => View["add_new_car.cshtml"];
       Get["/view_all_cars"] = _ =>
       {
-        List<Car> _instance = Cars.GetAll();
+        List<Car> _instance = Car.GetAll();
         return View["view_all_cars.cshtml", _instance];
       };
       Post["/car_added"] = _ =>
       {
-        Car newCar = new Car();
-        newCar.SetMakeModel(Request.Form["new-MakeModel"]);
-        newCar.SetMiles(Request.Form["new-Mileage"]);
-        newCar.SetPrice(Request.Form["new-Price"]);
-        newCar.SetMessage(Request.Form["new-Message"]);
+        Car newCar = new Car(Request.Form["new-MakeModel"], Request.Form["new-Message"], int.Parse(Request.Form["new-Mileage"]), int.Parse(Request.Form["new-Price"]) );
         newCar.Save();
         return View["car_added.cshtml", newCar];
       };
